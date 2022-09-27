@@ -4,24 +4,29 @@
 #include "xscugic.h"
 #include "xil_exception.h"
 #include "xil_printf.h"
+#include <stdio.h>
+#include "xil_printf.h"
 
 // Parameter definitions
 #define INTC_DEVICE_ID 		XPAR_PS7_SCUGIC_0_DEVICE_ID
 #define TMR_DEVICE_ID		XPAR_TMRCTR_0_DEVICE_ID
 #define LEDS_DEVICE_ID		XPAR_AXI_GPIO_LED_DEVICE_ID
+#define BTNS_DEVICE_ID		XPAR_AXI_GPIO_BUTTONS_DEVICE_ID
 #define INTC_TMR_INTERRUPT_ID XPAR_FABRIC_AXI_TIMER_0_INTERRUPT_INTR
-#define BTN_INT  XGPIO_IR_CH1_MASK
-#define BTNS_DEVICE_ID XPAR_AXI_GPIO_BUTTONS_DEVICE_ID
+#define INTC_GPIO_INTERRUPT_ID XPAR_FABRIC_AXI_GPIO_BUTTONS_IP2INTC_IRPT_INTR
+
+#define BTN_INT 			XGPIO_IR_CH1_MASK
 #define TMR_LOAD			(0xFFFFFFFF - 50000000*0.5) // 0.5s Timer
 
 XGpio LEDInst, BTNInst;
 XScuGic INTCInst;
 XTmrCtr TMRInst;
-static int led_data;
-static int tmr_count;
-static int led_out;
+static int led_counter;
 static int btn_value;
-int max = 16;
+static int boton_press;
+static int tmr_count;
+static int led_data;
+static int max_counter = 15;
 
 //----------------------------------------------------
 // PROTOTYPE FUNCTIONS
@@ -37,49 +42,56 @@ static int IntcInitFunction(u16 DeviceId, XTmrCtr *TmrInstancePtr);
 //----------------------------------------------------
 
 
-
 void TMR_Intr_Handler(void *data)
 {
+	// Disable GPIO interrupts
+	/*XGpio_InterruptDisable(&BTNInst, BTN_INT);*/
+	// Ignore additional button presses
+	xil_printf("hola \n \r");
+	/*if ((XGpio_InterruptGetStatus(&BTNInst) & BTN_INT) !=
+			BTN_INT) {
+			return;
+		}*/
 	if (XTmrCtr_IsExpired(&TMRInst,0)){
 
 		XTmrCtr_Reset(&TMRInst,0);
-		XGpio_InterruptDisable(&BTNInst, BTN_INT);
-		// Ignore additional button presses
-		if ((XGpio_InterruptGetStatus(&BTNInst) & BTN_INT) !=
-		BTN_INT) {
-		max = 18;
-		return;
-		}
-		btn_value = XGpio_DiscreteRead(&BTNInst, 1);
+
+		/*btn_value = XGpio_DiscreteRead(&BTNInst, BTN_INT);
+
+		boton_press = btn_value;*/
 
 		if(tmr_count == 1){ // La segunda vez que entre (2 veces 0.5 segundos = 1 segundo)
 							// se suma uno a la data del led
 
 			tmr_count = 0;
 
-			if (led_data < 5){
-				led_out = 2;
+			if (led_counter < 5){
+				led_data = 2;
 			}
-			else if(led_data >= 5 && led_data < 7){
-				led_out = 4;
+			else if(led_counter >= 5 && led_counter < 7){
+				led_data = 4;
 			}
-			else if(led_data >= 7){
-				led_out = 9;
-			}
-			led_data = led_data + 1;
-			if (led_data == max){
-				if (led_data == 18){
-					max = 16;
+			else if(led_counter >= 7){
+				led_data = 9;
+				// si se presiona el boton aumenta max_counter
+				if (boton_press == 1 && led_counter == 7){
+					max_counter = 17;
+					boton_press = 0;
 				}
-				led_data = 0;
 			}
-			XGpio_DiscreteWrite(&LEDInst, 1, led_out);
-
-
-
+			led_counter = led_counter + 1;
+			if (led_counter == max_counter){
+				led_counter = 0;
+				max_counter = 15;
+			}
+			XGpio_DiscreteWrite(&LEDInst, 1, led_data);
 		}
 		else tmr_count++;
 	}
+
+	/*(void)XGpio_InterruptClear(&BTNInst, BTN_INT);*/
+  // Enable GPIO interrupts
+  /*XGpio_InterruptEnable(&BTNInst, BTN_INT);*/
 }
 
 
@@ -169,3 +181,4 @@ int IntcInitFunction(u16 DeviceId, XTmrCtr *TmrInstancePtr)
 
 	return XST_SUCCESS;
 }
+
