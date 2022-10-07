@@ -1,0 +1,12 @@
+17:18:47 INFO  : Launching XSCT server: xsct.bat -n  -interactive C:\Users\Camilo\Desktop\SEP\SEP2022-02-Colaborativo\Proyecto_01\temp_xsdb_launch_script.tcl
+17:18:47 INFO  : Registering command handlers for Vitis TCF services
+17:18:52 INFO  : XSCT server has started successfully.
+17:18:52 INFO  : plnx-install-location is set to ''
+17:18:52 INFO  : Successfully done setting XSCT server connection channel  
+17:18:54 INFO  : Platform repository initialization has completed.
+17:18:57 INFO  : Successfully done setting workspace for the tool. 
+17:18:57 INFO  : Successfully done query RDI_DATADIR 
+17:20:40 INFO  : Result from executing command 'getProjects': design_4_wrapper
+17:20:40 INFO  : Result from executing command 'getPlatforms': 
+17:20:41 INFO  : Platform 'design_4_wrapper' is added to custom repositories.
+17:20:52 INFO  : Platform 'design_4_wrapper' is added to custom repositories.
