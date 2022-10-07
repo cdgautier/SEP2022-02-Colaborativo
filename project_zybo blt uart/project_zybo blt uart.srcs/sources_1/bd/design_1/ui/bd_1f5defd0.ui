@@ -1,0 +1,64 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.3875",
+   "Default View_TopLeft":"-575,0",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:9.0 non-TLS
+#  -string -flagsOSRD
+preplace port DDR -pg 1 -lvl 6 -x 1970 -y 150 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -lvl 6 -x 1970 -y 170 -defaultsOSRD
+preplace port leds_4bits -pg 1 -lvl 6 -x 1970 -y 850 -defaultsOSRD
+preplace port btn -pg 1 -lvl 6 -x 1970 -y 540 -defaultsOSRD
+preplace port IIC -pg 1 -lvl 6 -x 1970 -y 670 -defaultsOSRD
+preplace port rx_0 -pg 1 -lvl 0 -x 0 -y 1100 -defaultsOSRD
+preplace port tx_0 -pg 1 -lvl 6 -x 1970 -y 1200 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 5 -x 1710 -y 210 -defaultsOSRD
+preplace inst AXI_GPIO_LED -pg 1 -lvl 5 -x 1710 -y 850 -defaultsOSRD
+preplace inst AXI_GPIO_BUTTONS -pg 1 -lvl 5 -x 1710 -y 550 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 2 -x 540 -y 660 -defaultsOSRD
+preplace inst rst_ps7_0_50M -pg 1 -lvl 1 -x 200 -y 1000 -defaultsOSRD
+preplace inst axi_timer_0 -pg 1 -lvl 3 -x 920 -y 480 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 4 -x 1300 -y 500 -defaultsOSRD
+preplace inst axi_uartlite_0 -pg 1 -lvl 5 -x 1710 -y 1190 -defaultsOSRD
+preplace inst axi_iic_0 -pg 1 -lvl 5 -x 1710 -y 690 -defaultsOSRD
+preplace inst axi_dma_0 -pg 1 -lvl 3 -x 920 -y 140 -defaultsOSRD
+preplace inst axi_mem_intercon -pg 1 -lvl 4 -x 1300 -y 190 -defaultsOSRD
+preplace inst axis_data_fifo_0 -pg 1 -lvl 2 -x 540 -y 100 -defaultsOSRD
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 6 20 800 370 20 740 270 1130 370 1460 90 1940
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 6 30 900 NJ 900 700J 1180 NJ 1180 1470J 1090 1950
+preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 1 4 380 200 750 290 1140 590 1480
+preplace netloc AXI_GPIO_BUTTONS_ip2intc_irpt 1 3 3 1150 410 NJ 410 1940
+preplace netloc axi_timer_0_interrupt 1 3 1 1090 490n
+preplace netloc xlconcat_0_dout 1 4 1 1450 250n
+preplace netloc rx_0_1 1 0 6 NJ 1100 NJ 1100 690J 1190 NJ 1190 1450J 1100 1940
+preplace netloc axi_uartlite_0_tx 1 5 1 NJ 1200
+preplace netloc axi_dma_0_mm2s_introut 1 3 1 1120 190n
+preplace netloc axi_dma_0_s2mm_introut 1 3 1 1110 210n
+preplace netloc ps7_0_axi_periph_M00_AXI 1 2 3 740 600 NJ 600 1450J
+preplace netloc processing_system7_0_DDR 1 5 1 NJ 150
+preplace netloc processing_system7_0_FIXED_IO 1 5 1 NJ 170
+preplace netloc ps7_0_axi_periph_M01_AXI 1 2 3 750 660 NJ 660 1450J
+preplace netloc axi_gpio_0_GPIO 1 5 1 NJ 850
+preplace netloc AXI_GPIO_BUTTONS_GPIO 1 5 1 NJ 540
+preplace netloc processing_system7_0_M_AXI_GP0 1 1 5 390 280 NJ 280 1100J 10 NJ 10 1950
+preplace netloc ps7_0_axi_periph_M02_AXI 1 2 1 730 430n
+preplace netloc axi_iic_0_IIC 1 5 1 NJ 670
+preplace netloc ps7_0_axi_periph_M03_AXI 1 2 3 N 670 NJ 670 NJ
+preplace netloc ps7_0_axi_periph_M04_AXI 1 2 3 710 1170 NJ 1170 NJ
+preplace netloc ps7_0_axi_periph_M05_AXI 1 2 1 720 80n
+preplace netloc axi_dma_0_M_AXI_SG 1 3 1 N 70
+preplace netloc axi_mem_intercon_M00_AXI 1 4 1 N 190
+preplace netloc axi_dma_0_M_AXI_MM2S 1 3 1 N 90
+preplace netloc axi_dma_0_M_AXI_S2MM 1 3 1 N 110
+preplace netloc axi_dma_0_M_AXIS_MM2S 1 1 3 390 10 NJ 10 1090
+preplace netloc axis_data_fifo_0_M_AXIS 1 2 1 N 100
+levelinfo -pg 1 0 200 540 920 1300 1710 1970
+pagesize -pg 1 -db -bbox -sgen -80 0 2090 1280
+"
+}
+{
+   "da_axi4_cnt":"9",
+   "da_board_cnt":"2",
+   "da_clkrst_cnt":"1",
+   "da_ps7_cnt":"1"
+}
