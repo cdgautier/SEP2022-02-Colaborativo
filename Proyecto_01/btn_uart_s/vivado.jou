@@ -1,0 +1,77 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Wed Oct 12 14:20:55 2022
+# Process ID: 19616
+# Current directory: C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20260 C:\Users\Marco\Desktop\SEP\SEP2022-02-Colaborativo\proyecto 1\project_zybo blt uart.xpr
+# Log file: C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/vivado.log
+# Journal file: C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.xpr}
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/design_1.bd}
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_0
+endgroup
+set_property name AXI_GPIO_SWITCHES_0 [get_bd_cells axi_gpio_0]
+set_property name AXI_GPIO_SWITCHES [get_bd_cells AXI_GPIO_SWITCHES_0]
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {btns_4bits ( 4 Buttons ) } Manual_Source {Auto}}  [get_bd_intf_pins AXI_GPIO_SWITCHES/GPIO]
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/processing_system7_0/FCLK_CLK0 (100 MHz)} Clk_slave {Auto} Clk_xbar {/processing_system7_0/FCLK_CLK0 (100 MHz)} Master {/processing_system7_0/M_AXI_GP0} Slave {/AXI_GPIO_SWITCHES/S_AXI} ddr_seg {Auto} intc_ip {/ps7_0_axi_periph} master_apm {0}}  [get_bd_intf_pins AXI_GPIO_SWITCHES/S_AXI]
+endgroup
+startgroup
+set_property -dict [list CONFIG.C_INTERRUPT_PRESENT {1} CONFIG.GPIO_BOARD_INTERFACE {sws_4bits}] [get_bd_cells AXI_GPIO_SWITCHES]
+endgroup
+delete_bd_objs [get_bd_intf_nets AXI_GPIO_SWITCHES_GPIO] [get_bd_intf_ports btns_4bits]
+startgroup
+make_bd_pins_external  [get_bd_cells AXI_GPIO_SWITCHES]
+make_bd_intf_pins_external  [get_bd_cells AXI_GPIO_SWITCHES]
+endgroup
+set_property name sw [get_bd_intf_ports GPIO_0]
+set_property location {2010 907} [get_bd_ports ip2intc_irpt_0]
+delete_bd_objs [get_bd_nets AXI_GPIO_SWITCHES_ip2intc_irpt] [get_bd_ports ip2intc_irpt_0]
+startgroup
+set_property -dict [list CONFIG.NUM_PORTS {5}] [get_bd_cells xlconcat_0]
+endgroup
+connect_bd_net [get_bd_pins AXI_GPIO_SWITCHES/ip2intc_irpt] [get_bd_pins xlconcat_0/In4]
+regenerate_bd_layout
+startgroup
+set_property -dict [list CONFIG.GPIO_BOARD_INTERFACE {Custom}] [get_bd_cells AXI_GPIO_SWITCHES]
+endgroup
+set_property location {2057 566} [get_bd_intf_ports btn]
+set_property location {2095 997} [get_bd_intf_ports sw]
+regenerate_bd_layout
+delete_bd_objs [get_bd_intf_nets AXI_GPIO_SWITCHES_GPIO] [get_bd_intf_ports sw]
+apply_board_connection -board_interface "btns_4bits" -ip_intf "AXI_GPIO_BUTTONS/GPIO" -diagram "design_1" 
+startgroup
+set_property -dict [list CONFIG.GPIO_BOARD_INTERFACE {sws_4bits}] [get_bd_cells AXI_GPIO_SWITCHES]
+endgroup
+set_property location {2083 542} [get_bd_intf_ports btn]
+set_property location {2084 546} [get_bd_intf_ports btn]
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {sws_4bits ( 4 Switches ) } Manual_Source {Auto}}  [get_bd_intf_pins AXI_GPIO_SWITCHES/GPIO]
+validate_bd_design
+make_wrapper -files [get_files {{C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/design_1.bd}}] -top
+reset_run synth_1
+reset_run design_1_processing_system7_0_0_synth_1
+reset_run design_1_xbar_0_synth_1
+reset_run design_1_axi_gpio_0_1_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+set_property range 4K [get_bd_addr_segs {processing_system7_0/Data/SEG_AXI_GPIO_SWITCHES_Reg}]
+set_property offset 0x40003000 [get_bd_addr_segs {processing_system7_0/Data/SEG_AXI_GPIO_SWITCHES_Reg}]
+set_property name sw [get_bd_intf_ports sws_4bits]
+set_property location {2063 905} [get_bd_intf_ports leds_4bits]
+set_property location {2073 906} [get_bd_intf_ports leds_4bits]
+save_bd_design
+make_wrapper -files [get_files {{C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/design_1.bd}}] -top
+validate_bd_design -force
+make_wrapper -files [get_files {{C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/design_1.bd}}] -top
+reset_run synth_1
+reset_run design_1_xbar_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+wait_on_run impl_1
+set_property pfm_name {} [get_files -all {C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/design_1.bd}]
+write_hw_platform -fixed -include_bit -force -file {C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/blts_uart_wrapper.xsa}

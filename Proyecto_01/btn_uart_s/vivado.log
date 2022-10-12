@@ -1,0 +1,656 @@
+#-----------------------------------------------------------
+# Vivado v2020.1 (64-bit)
+# SW Build 2902540 on Wed May 27 19:54:49 MDT 2020
+# IP Build 2902112 on Wed May 27 22:43:36 MDT 2020
+# Start of session at: Wed Oct 12 14:20:55 2022
+# Process ID: 19616
+# Current directory: C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20260 C:\Users\Marco\Desktop\SEP\SEP2022-02-Colaborativo\proyecto 1\project_zybo blt uart.xpr
+# Log file: C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/vivado.log
+# Journal file: C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.xpr}
+INFO: [Project 1-313] Project file moved from 'C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/project_zybo blt uart' since last save.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.1/data/ip'.
+open_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1061.637 ; gain = 0.000
+update_compile_order -fileset sources_1
+open_bd_design {C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/design_1.bd}
+Adding component instance block -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+WARNING: [BD 41-176] The physical port 'S_AXI_GP2_rd_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP2_wr_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP3_rd_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP3_wr_socket' specified in the portmap, is not found on the block! 
+Adding component instance block -- xilinx.com:ip:axi_gpio:2.0 - AXI_GPIO_LED
+Adding component instance block -- xilinx.com:ip:axi_gpio:2.0 - AXI_GPIO_BUTTONS
+Adding component instance block -- xilinx.com:ip:axi_interconnect:2.1 - ps7_0_axi_periph
+Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - rst_ps7_0_50M
+Adding component instance block -- xilinx.com:ip:axi_timer:2.0 - axi_timer_0
+Adding component instance block -- xilinx.com:ip:xlconcat:2.1 - xlconcat_0
+Adding component instance block -- xilinx.com:ip:axi_uartlite:2.0 - axi_uartlite_0
+Adding component instance block -- xilinx.com:ip:axi_iic:2.0 - axi_iic_0
+Adding component instance block -- xilinx.com:ip:axi_dma:7.1 - axi_dma_0
+Adding component instance block -- xilinx.com:ip:axi_interconnect:2.1 - axi_mem_intercon
+Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding component instance block -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_us
+Adding component instance block -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_us
+Adding component instance block -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_us
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:ip:axis_data_fifo:2.0 - axis_data_fifo_0
+Successfully read diagram <design_1> from BD file <C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/design_1.bd>
+open_bd_design: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1536.918 ; gain = 0.000
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:axi_gpio:2.0 axi_gpio_0
+endgroup
+set_property name AXI_GPIO_SWITCHES_0 [get_bd_cells axi_gpio_0]
+set_property name AXI_GPIO_SWITCHES [get_bd_cells AXI_GPIO_SWITCHES_0]
+startgroup
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {btns_4bits ( 4 Buttons ) } Manual_Source {Auto}}  [get_bd_intf_pins AXI_GPIO_SWITCHES/GPIO]
+INFO: [board_rule 100-100] set_property CONFIG.USE_BOARD_FLOW true [get_bd_cells /AXI_GPIO_SWITCHES]
+INFO: [board_rule 100-100] set_property CONFIG.GPIO_BOARD_INTERFACE btns_4bits [get_bd_cells /AXI_GPIO_SWITCHES]
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.1/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-25:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-25/E.0/board.xml as part xc7s25csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-50:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-50/B.0/board.xml as part xc7s50csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty/C.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:basys3:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/basys3/C.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod-s7-25:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod-s7-25/B.0/board.xml as part xc7s25csga225-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-15t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-15t/B.0/board.xml as part xc7a15tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-35t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-35t/B.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:genesys2:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/genesys2/H/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.0/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.2/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4/B.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4_ddr:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4_ddr/C.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.1/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.2/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:sword:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/sword/C.0/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.3 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.3/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.1/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-25:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-25/E.0/board.xml as part xc7s25csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-50:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-50/B.0/board.xml as part xc7s50csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty/C.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:basys3:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/basys3/C.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod-s7-25:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod-s7-25/B.0/board.xml as part xc7s25csga225-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-15t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-15t/B.0/board.xml as part xc7a15tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-35t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-35t/B.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:genesys2:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/genesys2/H/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.0/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.2/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4/B.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4_ddr:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4_ddr/C.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.1/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.2/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:sword:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/sword/C.0/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.3 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.3/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.1/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-25:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-25/E.0/board.xml as part xc7s25csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-50:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-50/B.0/board.xml as part xc7s50csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty/C.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:basys3:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/basys3/C.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod-s7-25:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod-s7-25/B.0/board.xml as part xc7s25csga225-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-15t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-15t/B.0/board.xml as part xc7a15tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-35t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-35t/B.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:genesys2:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/genesys2/H/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.0/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.2/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4/B.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4_ddr:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4_ddr/C.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.1/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.2/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:sword:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/sword/C.0/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.3 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.3/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.1/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-25:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-25/E.0/board.xml as part xc7s25csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-50:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-50/B.0/board.xml as part xc7s50csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty/C.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:basys3:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/basys3/C.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod-s7-25:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod-s7-25/B.0/board.xml as part xc7s25csga225-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-15t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-15t/B.0/board.xml as part xc7a15tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-35t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-35t/B.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:genesys2:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/genesys2/H/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.0/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.2/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4/B.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4_ddr:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4_ddr/C.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.1/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.2/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:sword:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/sword/C.0/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.3 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.3/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+INFO: [Common 17-14] Message 'Board 49-26' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [BoardRule 102-8] create_bd_intf_port -mode Master -vlnv xilinx.com:interface:gpio_rtl:1.0 btns_4bits
+INFO: [BoardRule 102-9] connect_bd_intf_net /btns_4bits /AXI_GPIO_SWITCHES/GPIO
+apply_bd_automation -rule xilinx.com:bd_rule:axi4 -config { Clk_master {/processing_system7_0/FCLK_CLK0 (100 MHz)} Clk_slave {Auto} Clk_xbar {/processing_system7_0/FCLK_CLK0 (100 MHz)} Master {/processing_system7_0/M_AXI_GP0} Slave {/AXI_GPIO_SWITCHES/S_AXI} ddr_seg {Auto} intc_ip {/ps7_0_axi_periph} master_apm {0}}  [get_bd_intf_pins AXI_GPIO_SWITCHES/S_AXI]
+Slave segment '/AXI_GPIO_SWITCHES/S_AXI/Reg' is being assigned into address space '/processing_system7_0/Data' at <0x4120_0000 [ 64K ]>.
+endgroup
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.1/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-25:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-25/E.0/board.xml as part xc7s25csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-50:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-50/B.0/board.xml as part xc7s50csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty/C.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:basys3:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/basys3/C.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod-s7-25:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod-s7-25/B.0/board.xml as part xc7s25csga225-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-15t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-15t/B.0/board.xml as part xc7a15tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-35t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-35t/B.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:genesys2:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/genesys2/H/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.0/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.2/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4/B.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4_ddr:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4_ddr/C.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.1/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.2/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:sword:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/sword/C.0/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.3 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.3/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.1/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-25:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-25/E.0/board.xml as part xc7s25csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-50:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-50/B.0/board.xml as part xc7s50csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty/C.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:basys3:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/basys3/C.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod-s7-25:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod-s7-25/B.0/board.xml as part xc7s25csga225-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-15t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-15t/B.0/board.xml as part xc7a15tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-35t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-35t/B.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:genesys2:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/genesys2/H/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.0/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.2/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4/B.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4_ddr:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4_ddr/C.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.1/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.2/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:sword:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/sword/C.0/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.3 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.3/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.1/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-25:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-25/E.0/board.xml as part xc7s25csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-50:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-50/B.0/board.xml as part xc7s50csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty/C.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:basys3:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/basys3/C.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod-s7-25:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod-s7-25/B.0/board.xml as part xc7s25csga225-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-15t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-15t/B.0/board.xml as part xc7a15tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-35t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-35t/B.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:genesys2:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/genesys2/H/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.0/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.2/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4/B.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4_ddr:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4_ddr/C.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.1/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.2/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:sword:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/sword/C.0/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.3 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.3/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.1/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-25:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-25/E.0/board.xml as part xc7s25csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-50:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-50/B.0/board.xml as part xc7s50csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty/C.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:basys3:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/basys3/C.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod-s7-25:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod-s7-25/B.0/board.xml as part xc7s25csga225-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-15t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-15t/B.0/board.xml as part xc7a15tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-35t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-35t/B.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:genesys2:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/genesys2/H/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.0/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.2/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4/B.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4_ddr:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4_ddr/C.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.1/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.2/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:sword:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/sword/C.0/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.3 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.3/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+INFO: [Common 17-14] Message 'Board 49-26' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+startgroup
+set_property -dict [list CONFIG.C_INTERRUPT_PRESENT {1} CONFIG.GPIO_BOARD_INTERFACE {sws_4bits}] [get_bd_cells AXI_GPIO_SWITCHES]
+endgroup
+delete_bd_objs [get_bd_intf_nets AXI_GPIO_SWITCHES_GPIO] [get_bd_intf_ports btns_4bits]
+startgroup
+make_bd_pins_external  [get_bd_cells AXI_GPIO_SWITCHES]
+make_bd_intf_pins_external  [get_bd_cells AXI_GPIO_SWITCHES]
+endgroup
+set_property name sw [get_bd_intf_ports GPIO_0]
+set_property location {2010 907} [get_bd_ports ip2intc_irpt_0]
+delete_bd_objs [get_bd_nets AXI_GPIO_SWITCHES_ip2intc_irpt] [get_bd_ports ip2intc_irpt_0]
+startgroup
+set_property -dict [list CONFIG.NUM_PORTS {5}] [get_bd_cells xlconcat_0]
+endgroup
+connect_bd_net [get_bd_pins AXI_GPIO_SWITCHES/ip2intc_irpt] [get_bd_pins xlconcat_0/In4]
+regenerate_bd_layout
+startgroup
+set_property -dict [list CONFIG.GPIO_BOARD_INTERFACE {Custom}] [get_bd_cells AXI_GPIO_SWITCHES]
+endgroup
+set_property location {2057 566} [get_bd_intf_ports btn]
+set_property location {2095 997} [get_bd_intf_ports sw]
+regenerate_bd_layout
+delete_bd_objs [get_bd_intf_nets AXI_GPIO_SWITCHES_GPIO] [get_bd_intf_ports sw]
+apply_board_connection -board_interface "btns_4bits" -ip_intf "AXI_GPIO_BUTTONS/GPIO" -diagram "design_1" 
+INFO: [BoardInterface 100-3] current_bd_design design_1
+INFO: [BoardInterface 100-10] set_property CONFIG.USE_BOARD_FLOW true [get_bd_cells -quiet /AXI_GPIO_BUTTONS]
+INFO: [BoardInterface 100-12] set_property CONFIG.GPIO_BOARD_INTERFACE btns_4bits [get_bd_cells -quiet /AXI_GPIO_BUTTONS]
+INFO: [BoardInterface 100-116] delete_bd_objs -quiet /AXI_GPIO_BUTTONS_GPIO /btn
+INFO: [BoardInterface 100-108] create_bd_intf_port -mode Master -vlnv xilinx.com:interface:gpio_rtl:1.0 btn
+INFO: [BoardInterface 100-109] connect_bd_intf_net /btn /AXI_GPIO_BUTTONS/GPIO
+startgroup
+set_property -dict [list CONFIG.GPIO_BOARD_INTERFACE {sws_4bits}] [get_bd_cells AXI_GPIO_SWITCHES]
+endgroup
+set_property location {2083 542} [get_bd_intf_ports btn]
+set_property location {2084 546} [get_bd_intf_ports btn]
+apply_bd_automation -rule xilinx.com:bd_rule:board -config { Board_Interface {sws_4bits ( 4 Switches ) } Manual_Source {Auto}}  [get_bd_intf_pins AXI_GPIO_SWITCHES/GPIO]
+INFO: [board_rule 100-100] set_property CONFIG.GPIO_BOARD_INTERFACE sws_4bits [get_bd_cells /AXI_GPIO_SWITCHES]
+INFO: [BoardRule 102-8] create_bd_intf_port -mode Master -vlnv xilinx.com:interface:gpio_rtl:1.0 sws_4bits
+INFO: [BoardRule 102-9] connect_bd_intf_net /sws_4bits /AXI_GPIO_SWITCHES/GPIO
+validate_bd_design
+CRITICAL WARNING: [PSU-1]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_0 has negative value -0.050 . PS DDR interfaces might fail when entering negative DQS skew values. 
+CRITICAL WARNING: [PSU-2]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_1 has negative value -0.044 . PS DDR interfaces might fail when entering negative DQS skew values. 
+CRITICAL WARNING: [PSU-3]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_2 has negative value -0.035 . PS DDR interfaces might fail when entering negative DQS skew values. 
+CRITICAL WARNING: [PSU-4]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_3 has negative value -0.100 . PS DDR interfaces might fail when entering negative DQS skew values. 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP2_rd_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP2_wr_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP3_rd_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-176] The physical port 'S_AXI_GP3_wr_socket' specified in the portmap, is not found on the block! 
+WARNING: [BD 41-1771] Block interface /AXI_GPIO_BUTTONS/GPIO has associated board param 'GPIO_BOARD_INTERFACE', which is set to board part interface 'btns_4bits'. This interface is connected to an external interface /btn, whose name 'btn' does not match with the board interface name 'btns_4bits'.
+This is a visual-only issue - this interface /AXI_GPIO_BUTTONS/GPIO will be connected to board interface 'btns_4bits'. If desired, please change the name of this port /btn manually.
+WARNING: [BD 41-1771] Block interface /axi_iic_0/IIC has associated board param 'IIC_BOARD_INTERFACE', which is set to board part interface 'hdmi_in_ddc'. This interface is connected to an external interface /IIC, whose name 'IIC' does not match with the board interface name 'hdmi_in_ddc'.
+This is a visual-only issue - this interface /axi_iic_0/IIC will be connected to board interface 'hdmi_in_ddc'. If desired, please change the name of this port /IIC manually.
+validate_bd_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:45 . Memory (MB): peak = 1536.918 ; gain = 0.000
+make_wrapper -files [get_files {{C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/design_1.bd}}] -top
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+WARNING: [BD 41-1771] Block interface /AXI_GPIO_BUTTONS/GPIO has associated board param 'GPIO_BOARD_INTERFACE', which is set to board part interface 'btns_4bits'. This interface is connected to an external interface /btn, whose name 'btn' does not match with the board interface name 'btns_4bits'.
+This is a visual-only issue - this interface /AXI_GPIO_BUTTONS/GPIO will be connected to board interface 'btns_4bits'. If desired, please change the name of this port /btn manually.
+WARNING: [BD 41-1771] Block interface /axi_iic_0/IIC has associated board param 'IIC_BOARD_INTERFACE', which is set to board part interface 'hdmi_in_ddc'. This interface is connected to an external interface /IIC, whose name 'IIC' does not match with the board interface name 'hdmi_in_ddc'.
+This is a visual-only issue - this interface /axi_iic_0/IIC will be connected to board interface 'hdmi_in_ddc'. If desired, please change the name of this port /IIC manually.
+Wrote  : <C:\Users\Marco\Desktop\SEP\SEP2022-02-Colaborativo\proyecto 1\project_zybo blt uart.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/m00_couplers/auto_pc/m_axi_rid'(2) to pin: '/axi_mem_intercon/m00_couplers/M_AXI_rid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/m00_couplers/auto_pc/m_axi_bid'(2) to pin: '/axi_mem_intercon/m00_couplers/M_AXI_bid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_AWID'(6) to pin: '/axi_mem_intercon/M00_AXI_awid'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_ARID'(6) to pin: '/axi_mem_intercon/M00_AXI_arid'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_WID'(6) to pin: '/axi_mem_intercon/M00_AXI_wid'(2) - Only lower order bits will be connected.
+VHDL Output written to : C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/synth/design_1.v
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/m00_couplers/auto_pc/m_axi_rid'(2) to pin: '/axi_mem_intercon/m00_couplers/M_AXI_rid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/m00_couplers/auto_pc/m_axi_bid'(2) to pin: '/axi_mem_intercon/m00_couplers/M_AXI_bid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_AWID'(6) to pin: '/axi_mem_intercon/M00_AXI_awid'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_ARID'(6) to pin: '/axi_mem_intercon/M00_AXI_arid'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_WID'(6) to pin: '/axi_mem_intercon/M00_AXI_wid'(2) - Only lower order bits will be connected.
+VHDL Output written to : C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/sim/design_1.v
+VHDL Output written to : C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v
+reset_run synth_1
+reset_run design_1_processing_system7_0_0_synth_1
+reset_run design_1_xbar_0_synth_1
+reset_run design_1_axi_gpio_0_1_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+WARNING: [BD 41-1771] Block interface /AXI_GPIO_BUTTONS/GPIO has associated board param 'GPIO_BOARD_INTERFACE', which is set to board part interface 'btns_4bits'. This interface is connected to an external interface /btn, whose name 'btn' does not match with the board interface name 'btns_4bits'.
+This is a visual-only issue - this interface /AXI_GPIO_BUTTONS/GPIO will be connected to board interface 'btns_4bits'. If desired, please change the name of this port /btn manually.
+WARNING: [BD 41-1771] Block interface /axi_iic_0/IIC has associated board param 'IIC_BOARD_INTERFACE', which is set to board part interface 'hdmi_in_ddc'. This interface is connected to an external interface /IIC, whose name 'IIC' does not match with the board interface name 'hdmi_in_ddc'.
+This is a visual-only issue - this interface /axi_iic_0/IIC will be connected to board interface 'hdmi_in_ddc'. If desired, please change the name of this port /IIC manually.
+Wrote  : <C:\Users\Marco\Desktop\SEP\SEP2022-02-Colaborativo\proyecto 1\project_zybo blt uart.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/m00_couplers/auto_pc/m_axi_rid'(2) to pin: '/axi_mem_intercon/m00_couplers/M_AXI_rid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/m00_couplers/auto_pc/m_axi_bid'(2) to pin: '/axi_mem_intercon/m00_couplers/M_AXI_bid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_AWID'(6) to pin: '/axi_mem_intercon/M00_AXI_awid'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_ARID'(6) to pin: '/axi_mem_intercon/M00_AXI_arid'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_WID'(6) to pin: '/axi_mem_intercon/M00_AXI_wid'(2) - Only lower order bits will be connected.
+VHDL Output written to : C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/synth/design_1.v
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/m00_couplers/auto_pc/m_axi_rid'(2) to pin: '/axi_mem_intercon/m00_couplers/M_AXI_rid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/m00_couplers/auto_pc/m_axi_bid'(2) to pin: '/axi_mem_intercon/m00_couplers/M_AXI_bid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_AWID'(6) to pin: '/axi_mem_intercon/M00_AXI_awid'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_ARID'(6) to pin: '/axi_mem_intercon/M00_AXI_arid'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_WID'(6) to pin: '/axi_mem_intercon/M00_AXI_wid'(2) - Only lower order bits will be connected.
+VHDL Output written to : C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/sim/design_1.v
+VHDL Output written to : C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v
+WARNING: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI_GP0'. A default connection has been created.
+WARNING: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'S_AXI_HP0'. A default connection has been created.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 .
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.1/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-25:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-25/E.0/board.xml as part xc7s25csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-50:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-50/B.0/board.xml as part xc7s50csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty/C.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:basys3:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/basys3/C.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod-s7-25:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod-s7-25/B.0/board.xml as part xc7s25csga225-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-15t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-15t/B.0/board.xml as part xc7a15tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-35t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-35t/B.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:genesys2:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/genesys2/H/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.0/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.2/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4/B.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4_ddr:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4_ddr/C.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.1/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.2/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:sword:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/sword/C.0/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.3 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.3/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.1/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-25:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-25/E.0/board.xml as part xc7s25csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-50:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-50/B.0/board.xml as part xc7s50csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty/C.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:basys3:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/basys3/C.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod-s7-25:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod-s7-25/B.0/board.xml as part xc7s25csga225-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-15t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-15t/B.0/board.xml as part xc7a15tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-35t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-35t/B.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:genesys2:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/genesys2/H/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.0/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.2/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4/B.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4_ddr:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4_ddr/C.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.1/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.2/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:sword:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/sword/C.0/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.3 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.3/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.1/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-25:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-25/E.0/board.xml as part xc7s25csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-50:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-50/B.0/board.xml as part xc7s50csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty/C.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:basys3:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/basys3/C.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod-s7-25:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod-s7-25/B.0/board.xml as part xc7s25csga225-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-15t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-15t/B.0/board.xml as part xc7a15tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-35t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-35t/B.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:genesys2:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/genesys2/H/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.0/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.2/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4/B.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4_ddr:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4_ddr/C.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.1/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.2/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:sword:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/sword/C.0/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.3 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.3/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-100:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-100/E.0/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-a7-35:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-a7-35/E.0/1.1/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-25:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-25/E.0/board.xml as part xc7s25csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-50:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty-s7-50/B.0/board.xml as part xc7s50csga324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/arty/C.0/board.xml as part xc7a35ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:basys3:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/basys3/C.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod-s7-25:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod-s7-25/B.0/board.xml as part xc7s25csga225-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-15t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-15t/B.0/board.xml as part xc7a15tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod_a7-35t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/cmod_a7-35t/B.0/board.xml as part xc7a35tcpg236-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:genesys2:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/genesys2/H/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-100t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-100t/D.0/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.0/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys-a7-50t:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys-a7-50t/D.0/1.2/board.xml as part xc7a50ticsg324-1l specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4/B.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys4_ddr:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys4_ddr/C.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.1/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:nexys_video:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/nexys_video/A.0/1.2/board.xml as part xc7a200tsbg484-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:sword:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/sword/C.0/board.xml as part xc7k325tffg900-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.0 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.0/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.1 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.1/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.2 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.2/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:usb104-a7:part0:1.3 available at C:/Xilinx/Vivado/2020.1/data/boards/board_files/usb104-a7/B/1.3/board.xml as part xc7a100tcsg324-1 specified in board_part file is either invalid or not available
+INFO: [Common 17-14] Message 'Board 49-26' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block AXI_GPIO_BUTTONS .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/xbar .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block xlconcat_0 .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'c:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'c:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/ip/design_1_auto_us_0/design_1_auto_us_0_ooc.xdc'
+WARNING: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'S_AXI'. A default connection has been created.
+WARNING: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI'. A default connection has been created.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_mem_intercon/s00_couplers/auto_us .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'c:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/ip/design_1_auto_us_1/design_1_auto_us_1_ooc.xdc'
+WARNING: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'S_AXI'. A default connection has been created.
+WARNING: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI'. A default connection has been created.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_mem_intercon/s01_couplers/auto_us .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'c:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/ip/design_1_auto_us_2/design_1_auto_us_2_ooc.xdc'
+WARNING: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'S_AXI'. A default connection has been created.
+WARNING: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI'. A default connection has been created.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_mem_intercon/s02_couplers/auto_us .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'c:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_mem_intercon/m00_couplers/auto_pc .
+INFO: [BD 41-1029] Generation completed for the IP Integrator block AXI_GPIO_SWITCHES .
+Exporting to file C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_0, cache-ID = 66b4f2c9fa2ebf73; cache size = 19.624 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_1, cache-ID = c5308142dcb27da7; cache size = 19.624 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_us_0, cache-ID = f35c2e4de46c0a67; cache size = 19.624 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_us_1, cache-ID = ef34da8fed5f0cbb; cache size = 19.624 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_us_2, cache-ID = 8ef497590b47ece9; cache size = 19.624 MB.
+[Wed Oct 12 14:34:36 2022] Launched design_1_processing_system7_0_0_synth_1, design_1_xbar_0_synth_1, design_1_axi_gpio_0_1_synth_1, design_1_axi_gpio_0_2_synth_1, synth_1...
+Run output will be captured here:
+design_1_processing_system7_0_0_synth_1: C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.runs/design_1_processing_system7_0_0_synth_1/runme.log
+design_1_xbar_0_synth_1: C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.runs/design_1_xbar_0_synth_1/runme.log
+design_1_axi_gpio_0_1_synth_1: C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.runs/design_1_axi_gpio_0_1_synth_1/runme.log
+design_1_axi_gpio_0_2_synth_1: C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.runs/design_1_axi_gpio_0_2_synth_1/runme.log
+synth_1: C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.runs/synth_1/runme.log
+[Wed Oct 12 14:34:37 2022] Launched impl_1...
+Run output will be captured here: C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:28 ; elapsed = 00:00:34 . Memory (MB): peak = 1578.773 ; gain = 39.344
+set_property range 4K [get_bd_addr_segs {processing_system7_0/Data/SEG_AXI_GPIO_SWITCHES_Reg}]
+set_property offset 0x40003000 [get_bd_addr_segs {processing_system7_0/Data/SEG_AXI_GPIO_SWITCHES_Reg}]
+set_property name sw [get_bd_intf_ports sws_4bits]
+set_property location {2063 905} [get_bd_intf_ports leds_4bits]
+set_property location {2073 906} [get_bd_intf_ports leds_4bits]
+save_bd_design
+Wrote  : <C:\Users\Marco\Desktop\SEP\SEP2022-02-Colaborativo\proyecto 1\project_zybo blt uart.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+make_wrapper -files [get_files {{C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/design_1.bd}}] -top
+INFO: [Common 17-365] Interrupt caught but 'make_wrapper' cannot be canceled. Please wait for command to finish.
+WARNING: [BD 41-1771] Block interface /AXI_GPIO_BUTTONS/GPIO has associated board param 'GPIO_BOARD_INTERFACE', which is set to board part interface 'btns_4bits'. This interface is connected to an external interface /btn, whose name 'btn' does not match with the board interface name 'btns_4bits'.
+This is a visual-only issue - this interface /AXI_GPIO_BUTTONS/GPIO will be connected to board interface 'btns_4bits'. If desired, please change the name of this port /btn manually.
+WARNING: [BD 41-1771] Block interface /AXI_GPIO_SWITCHES/GPIO has associated board param 'GPIO_BOARD_INTERFACE', which is set to board part interface 'sws_4bits'. This interface is connected to an external interface /sw, whose name 'sw' does not match with the board interface name 'sws_4bits'.
+This is a visual-only issue - this interface /AXI_GPIO_SWITCHES/GPIO will be connected to board interface 'sws_4bits'. If desired, please change the name of this port /sw manually.
+WARNING: [BD 41-1771] Block interface /axi_iic_0/IIC has associated board param 'IIC_BOARD_INTERFACE', which is set to board part interface 'hdmi_in_ddc'. This interface is connected to an external interface /IIC, whose name 'IIC' does not match with the board interface name 'hdmi_in_ddc'.
+This is a visual-only issue - this interface /axi_iic_0/IIC will be connected to board interface 'hdmi_in_ddc'. If desired, please change the name of this port /IIC manually.
+Wrote  : <C:\Users\Marco\Desktop\SEP\SEP2022-02-Colaborativo\proyecto 1\project_zybo blt uart.srcs\sources_1\bd\design_1\design_1.bd> 
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/m00_couplers/auto_pc/m_axi_rid'(2) to pin: '/axi_mem_intercon/m00_couplers/M_AXI_rid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/m00_couplers/auto_pc/m_axi_bid'(2) to pin: '/axi_mem_intercon/m00_couplers/M_AXI_bid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_AWID'(6) to pin: '/axi_mem_intercon/M00_AXI_awid'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_ARID'(6) to pin: '/axi_mem_intercon/M00_AXI_arid'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_WID'(6) to pin: '/axi_mem_intercon/M00_AXI_wid'(2) - Only lower order bits will be connected.
+VHDL Output written to : C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/synth/design_1.v
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/m00_couplers/auto_pc/m_axi_rid'(2) to pin: '/axi_mem_intercon/m00_couplers/M_AXI_rid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/m00_couplers/auto_pc/m_axi_bid'(2) to pin: '/axi_mem_intercon/m00_couplers/M_AXI_bid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_AWID'(6) to pin: '/axi_mem_intercon/M00_AXI_awid'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_ARID'(6) to pin: '/axi_mem_intercon/M00_AXI_arid'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_WID'(6) to pin: '/axi_mem_intercon/M00_AXI_wid'(2) - Only lower order bits will be connected.
+VHDL Output written to : C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/sim/design_1.v
+VHDL Output written to : C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v
+make_wrapper: Time (s): cpu = 00:00:08 ; elapsed = 00:00:42 . Memory (MB): peak = 1590.398 ; gain = 11.625
+INFO: [Common 17-681] Processing pending cancel.
+validate_bd_design -force
+WARNING: [BD 41-1771] Block interface /AXI_GPIO_BUTTONS/GPIO has associated board param 'GPIO_BOARD_INTERFACE', which is set to board part interface 'btns_4bits'. This interface is connected to an external interface /btn, whose name 'btn' does not match with the board interface name 'btns_4bits'.
+This is a visual-only issue - this interface /AXI_GPIO_BUTTONS/GPIO will be connected to board interface 'btns_4bits'. If desired, please change the name of this port /btn manually.
+WARNING: [BD 41-1771] Block interface /AXI_GPIO_SWITCHES/GPIO has associated board param 'GPIO_BOARD_INTERFACE', which is set to board part interface 'sws_4bits'. This interface is connected to an external interface /sw, whose name 'sw' does not match with the board interface name 'sws_4bits'.
+This is a visual-only issue - this interface /AXI_GPIO_SWITCHES/GPIO will be connected to board interface 'sws_4bits'. If desired, please change the name of this port /sw manually.
+WARNING: [BD 41-1771] Block interface /axi_iic_0/IIC has associated board param 'IIC_BOARD_INTERFACE', which is set to board part interface 'hdmi_in_ddc'. This interface is connected to an external interface /IIC, whose name 'IIC' does not match with the board interface name 'hdmi_in_ddc'.
+This is a visual-only issue - this interface /axi_iic_0/IIC will be connected to board interface 'hdmi_in_ddc'. If desired, please change the name of this port /IIC manually.
+validate_bd_design: Time (s): cpu = 00:00:10 ; elapsed = 00:00:41 . Memory (MB): peak = 1608.297 ; gain = 15.305
+make_wrapper -files [get_files {{C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/design_1.bd}}] -top
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+WARNING: [BD 41-1771] Block interface /AXI_GPIO_BUTTONS/GPIO has associated board param 'GPIO_BOARD_INTERFACE', which is set to board part interface 'btns_4bits'. This interface is connected to an external interface /btn, whose name 'btn' does not match with the board interface name 'btns_4bits'.
+This is a visual-only issue - this interface /AXI_GPIO_BUTTONS/GPIO will be connected to board interface 'btns_4bits'. If desired, please change the name of this port /btn manually.
+WARNING: [BD 41-1771] Block interface /AXI_GPIO_SWITCHES/GPIO has associated board param 'GPIO_BOARD_INTERFACE', which is set to board part interface 'sws_4bits'. This interface is connected to an external interface /sw, whose name 'sw' does not match with the board interface name 'sws_4bits'.
+This is a visual-only issue - this interface /AXI_GPIO_SWITCHES/GPIO will be connected to board interface 'sws_4bits'. If desired, please change the name of this port /sw manually.
+WARNING: [BD 41-1771] Block interface /axi_iic_0/IIC has associated board param 'IIC_BOARD_INTERFACE', which is set to board part interface 'hdmi_in_ddc'. This interface is connected to an external interface /IIC, whose name 'IIC' does not match with the board interface name 'hdmi_in_ddc'.
+This is a visual-only issue - this interface /axi_iic_0/IIC will be connected to board interface 'hdmi_in_ddc'. If desired, please change the name of this port /IIC manually.
+Wrote  : <C:\Users\Marco\Desktop\SEP\SEP2022-02-Colaborativo\proyecto 1\project_zybo blt uart.srcs\sources_1\bd\design_1\design_1.bd> 
+Wrote  : <C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/ui/bd_1f5defd0.ui> 
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/m00_couplers/auto_pc/m_axi_rid'(2) to pin: '/axi_mem_intercon/m00_couplers/M_AXI_rid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/m00_couplers/auto_pc/m_axi_bid'(2) to pin: '/axi_mem_intercon/m00_couplers/M_AXI_bid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_AWID'(6) to pin: '/axi_mem_intercon/M00_AXI_awid'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_ARID'(6) to pin: '/axi_mem_intercon/M00_AXI_arid'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_WID'(6) to pin: '/axi_mem_intercon/M00_AXI_wid'(2) - Only lower order bits will be connected.
+VHDL Output written to : C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/synth/design_1.v
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/m00_couplers/auto_pc/m_axi_rid'(2) to pin: '/axi_mem_intercon/m00_couplers/M_AXI_rid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/m00_couplers/auto_pc/m_axi_bid'(2) to pin: '/axi_mem_intercon/m00_couplers/M_AXI_bid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_AWID'(6) to pin: '/axi_mem_intercon/M00_AXI_awid'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_ARID'(6) to pin: '/axi_mem_intercon/M00_AXI_arid'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_WID'(6) to pin: '/axi_mem_intercon/M00_AXI_wid'(2) - Only lower order bits will be connected.
+VHDL Output written to : C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/sim/design_1.v
+VHDL Output written to : C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v
+reset_run synth_1
+reset_run design_1_xbar_0_synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+INFO: [BD 41-1662] The design 'design_1.bd' is already validated. Therefore parameter propagation will not be re-run.
+WARNING: [BD 41-1771] Block interface /AXI_GPIO_BUTTONS/GPIO has associated board param 'GPIO_BOARD_INTERFACE', which is set to board part interface 'btns_4bits'. This interface is connected to an external interface /btn, whose name 'btn' does not match with the board interface name 'btns_4bits'.
+This is a visual-only issue - this interface /AXI_GPIO_BUTTONS/GPIO will be connected to board interface 'btns_4bits'. If desired, please change the name of this port /btn manually.
+WARNING: [BD 41-1771] Block interface /AXI_GPIO_SWITCHES/GPIO has associated board param 'GPIO_BOARD_INTERFACE', which is set to board part interface 'sws_4bits'. This interface is connected to an external interface /sw, whose name 'sw' does not match with the board interface name 'sws_4bits'.
+This is a visual-only issue - this interface /AXI_GPIO_SWITCHES/GPIO will be connected to board interface 'sws_4bits'. If desired, please change the name of this port /sw manually.
+WARNING: [BD 41-1771] Block interface /axi_iic_0/IIC has associated board param 'IIC_BOARD_INTERFACE', which is set to board part interface 'hdmi_in_ddc'. This interface is connected to an external interface /IIC, whose name 'IIC' does not match with the board interface name 'hdmi_in_ddc'.
+This is a visual-only issue - this interface /axi_iic_0/IIC will be connected to board interface 'hdmi_in_ddc'. If desired, please change the name of this port /IIC manually.
+Wrote  : <C:\Users\Marco\Desktop\SEP\SEP2022-02-Colaborativo\proyecto 1\project_zybo blt uart.srcs\sources_1\bd\design_1\design_1.bd> 
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/m00_couplers/auto_pc/m_axi_rid'(2) to pin: '/axi_mem_intercon/m00_couplers/M_AXI_rid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/m00_couplers/auto_pc/m_axi_bid'(2) to pin: '/axi_mem_intercon/m00_couplers/M_AXI_bid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_AWID'(6) to pin: '/axi_mem_intercon/M00_AXI_awid'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_ARID'(6) to pin: '/axi_mem_intercon/M00_AXI_arid'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_WID'(6) to pin: '/axi_mem_intercon/M00_AXI_wid'(2) - Only lower order bits will be connected.
+VHDL Output written to : C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/synth/design_1.v
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/m00_couplers/auto_pc/m_axi_rid'(2) to pin: '/axi_mem_intercon/m00_couplers/M_AXI_rid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/axi_mem_intercon/m00_couplers/auto_pc/m_axi_bid'(2) to pin: '/axi_mem_intercon/m00_couplers/M_AXI_bid'(6) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_AWID'(6) to pin: '/axi_mem_intercon/M00_AXI_awid'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_ARID'(6) to pin: '/axi_mem_intercon/M00_AXI_arid'(2) - Only lower order bits will be connected.
+WARNING: [BD 41-2384] Width mismatch when connecting pin: '/processing_system7_0/S_AXI_HP0_WID'(6) to pin: '/axi_mem_intercon/M00_AXI_wid'(2) - Only lower order bits will be connected.
+VHDL Output written to : C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/sim/design_1.v
+VHDL Output written to : C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/xbar .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'c:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block ps7_0_axi_periph/s00_couplers/auto_pc .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'c:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/ip/design_1_auto_us_0/design_1_auto_us_0_ooc.xdc'
+WARNING: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'S_AXI'. A default connection has been created.
+WARNING: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI'. A default connection has been created.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_mem_intercon/s00_couplers/auto_us .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'c:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/ip/design_1_auto_us_1/design_1_auto_us_1_ooc.xdc'
+WARNING: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'S_AXI'. A default connection has been created.
+WARNING: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI'. A default connection has been created.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_mem_intercon/s01_couplers/auto_us .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'c:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/ip/design_1_auto_us_2/design_1_auto_us_2_ooc.xdc'
+WARNING: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'S_AXI'. A default connection has been created.
+WARNING: [IP_Flow 19-5611] Unable to find an associated reset port for the interface 'M_AXI'. A default connection has been created.
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_mem_intercon/s02_couplers/auto_us .
+WARNING: [IP_Flow 19-4994] Overwriting existing constraint file 'c:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_1/design_1_auto_pc_1_ooc.xdc'
+INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_mem_intercon/m00_couplers/auto_pc .
+Exporting to file C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/hw_handoff/design_1.hwh
+Generated Block Design Tcl file C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/hw_handoff/design_1_bd.tcl
+Generated Hardware Definition File C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/synth/design_1.hwdef
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_0, cache-ID = 66b4f2c9fa2ebf73; cache size = 21.650 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_pc_1, cache-ID = c5308142dcb27da7; cache size = 21.650 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_us_0, cache-ID = f35c2e4de46c0a67; cache size = 21.650 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_us_1, cache-ID = ef34da8fed5f0cbb; cache size = 21.650 MB.
+INFO: [IP_Flow 19-4993] Using cached IP synthesis design for IP design_1_auto_us_2, cache-ID = 8ef497590b47ece9; cache size = 21.650 MB.
+[Wed Oct 12 14:49:06 2022] Launched design_1_xbar_0_synth_1, synth_1...
+Run output will be captured here:
+design_1_xbar_0_synth_1: C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.runs/design_1_xbar_0_synth_1/runme.log
+synth_1: C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.runs/synth_1/runme.log
+[Wed Oct 12 14:49:06 2022] Launched impl_1...
+Run output will be captured here: C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:04 ; elapsed = 00:00:07 . Memory (MB): peak = 1616.961 ; gain = 8.664
+WARNING: [Vivado 12-818] No files matched 'C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto'
+WARNING: [Vivado 12-818] No files matched '1/project_zybo'
+WARNING: [Vivado 12-818] No files matched 'blt'
+WARNING: [Vivado 12-818] No files matched 'uart.srcs/sources_1/bd/design_1/design_1.bd'
+ERROR: [Common 17-55] 'get_property' expects at least one object.
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-818] No files matched 'C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto'
+WARNING: [Vivado 12-818] No files matched '1/project_zybo'
+WARNING: [Vivado 12-818] No files matched 'blt'
+WARNING: [Vivado 12-818] No files matched 'uart.srcs/sources_1/bd/design_1/design_1.bd'
+ERROR: [Common 17-55] 'get_property' expects at least one object.
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-818] No files matched 'C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto'
+WARNING: [Vivado 12-818] No files matched '1/project_zybo'
+WARNING: [Vivado 12-818] No files matched 'blt'
+WARNING: [Vivado 12-818] No files matched 'uart.srcs/sources_1/bd/design_1/design_1.bd'
+ERROR: [Common 17-55] 'get_property' expects at least one object.
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+set_property pfm_name {} [get_files -all {C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/project_zybo blt uart.srcs/sources_1/bd/design_1/design_1.bd}]
+WARNING: [Vivado 12-818] No files matched 'C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto'
+WARNING: [Vivado 12-818] No files matched '1/project_zybo'
+WARNING: [Vivado 12-818] No files matched 'blt'
+WARNING: [Vivado 12-818] No files matched 'uart.srcs/sources_1/bd/design_1/design_1.bd'
+ERROR: [Common 17-55] 'set_property' expects at least one object.
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+write_hw_platform -fixed -include_bit -force -file {C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/blts_uart_wrapper.xsa}
+INFO: [Vivado 12-4895] Creating Hardware Platform: C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/blts_uart_wrapper.xsa ...
+INFO: [Hsi 55-2053] elapsed time for repository (C:/Xilinx/Vivado/2020.1/data\embeddedsw) loading 0 seconds
+WARNING: [Project 1-645] Board images not set in Hardware Platform.
+INFO: [Vivado 12-4896] Successfully created Hardware Platform: C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/proyecto 1/blts_uart_wrapper.xsa
+write_hw_platform: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1665.750 ; gain = 48.789
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Oct 12 14:56:17 2022...

@@ -1,0 +1,53 @@
+vhdl xpm  \
+"C:/Xilinx/Vivado/2020.1/data/ip/xpm/xpm_VCOMP.vhd" \
+
+vhdl axi_lite_ipif_v3_0_4  \
+"../../../../project_zybo blt uart.srcs/sources_1/bd/design_1/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd" \
+
+vhdl lib_cdc_v1_0_2  \
+"../../../../project_zybo blt uart.srcs/sources_1/bd/design_1/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd" \
+
+vhdl interrupt_control_v3_1_4  \
+"../../../../project_zybo blt uart.srcs/sources_1/bd/design_1/ipshared/a040/hdl/interrupt_control_v3_1_vh_rfs.vhd" \
+
+vhdl axi_gpio_v2_0_23  \
+"../../../../project_zybo blt uart.srcs/sources_1/bd/design_1/ipshared/bb35/hdl/axi_gpio_v2_0_vh_rfs.vhd" \
+
+vhdl xil_defaultlib  \
+"../../../bd/design_1/ip/design_1_axi_gpio_0_0/sim/design_1_axi_gpio_0_0.vhd" \
+"../../../bd/design_1/ip/design_1_axi_gpio_0_1/sim/design_1_axi_gpio_0_1.vhd" \
+
+vhdl fifo_generator_v13_2_5  \
+"../../../../project_zybo blt uart.srcs/sources_1/bd/design_1/ipshared/276e/hdl/fifo_generator_v13_2_rfs.vhd" \
+
+vhdl proc_sys_reset_v5_0_13  \
+"../../../../project_zybo blt uart.srcs/sources_1/bd/design_1/ipshared/8842/hdl/proc_sys_reset_v5_0_vh_rfs.vhd" \
+
+vhdl xil_defaultlib  \
+"../../../bd/design_1/ip/design_1_rst_ps7_0_50M_0/sim/design_1_rst_ps7_0_50M_0.vhd" \
+
+vhdl lib_pkg_v1_0_2  \
+"../../../../project_zybo blt uart.srcs/sources_1/bd/design_1/ipshared/0513/hdl/lib_pkg_v1_0_rfs.vhd" \
+
+vhdl axi_timer_v2_0_23  \
+"../../../../project_zybo blt uart.srcs/sources_1/bd/design_1/ipshared/eb71/hdl/axi_timer_v2_0_vh_rfs.vhd" \
+
+vhdl xil_defaultlib  \
+"../../../bd/design_1/ip/design_1_axi_timer_0_0/sim/design_1_axi_timer_0_0.vhd" \
+
+vhdl lib_srl_fifo_v1_0_2  \
+"../../../../project_zybo blt uart.srcs/sources_1/bd/design_1/ipshared/51ce/hdl/lib_srl_fifo_v1_0_rfs.vhd" \
+
+vhdl axi_uartlite_v2_0_25  \
+"../../../../project_zybo blt uart.srcs/sources_1/bd/design_1/ipshared/43b7/hdl/axi_uartlite_v2_0_vh_rfs.vhd" \
+
+vhdl xil_defaultlib  \
+"../../../bd/design_1/ip/design_1_axi_uartlite_0_0/sim/design_1_axi_uartlite_0_0.vhd" \
+
+vhdl axi_iic_v2_0_24  \
+"../../../../project_zybo blt uart.srcs/sources_1/bd/design_1/ipshared/d1e4/hdl/axi_iic_v2_0_vh_rfs.vhd" \
+
+vhdl xil_defaultlib  \
+"../../../bd/design_1/ip/design_1_axi_iic_0_0/sim/design_1_axi_iic_0_0.vhd" \
+
+nosort
