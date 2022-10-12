@@ -47,8 +47,8 @@ while(switch){
 		while(autentificacion){
 			indice_flujo = 0;
 			// btn_handler() depende de indice_flujo
-			// si indice_flujo = 0 ->  btn_handler() muestra menu_inicio
-			// si indice_flujo = 1 ->  btn_handler() almacenó seleccion_juego
+			// if indice_flujo = 0 ->  btn_handler() muestra menu_inicio
+			// if indice_flujo = 1 ->  btn_handler() almacenó seleccion_juego
 			if seleccion_juego == 0001{
 				ranking();
 				indice_flujo = 0
@@ -67,20 +67,15 @@ while(switch){
 				
 
 				if indice_flujo == 2{
+					indice_juego = 0;
 					tmr_handler() ejecuta parpadeo de los 4 LEDs tendr´an que parpadear 3 veces para indicar que se terminó el juego. Frecuencia de medio segundo,
 					btn_handler() pasa a seleccion_postjuego
 					si seleccion_postjuego = 01 -> mismo jugador, indice_flujo = 0, indice_juego = 0;
 					si seleccion_postjuego = 10 -> otro jugador, autentificacion = 0, indice_flujo = 0, indice_juego = 0;
 				}	
 			}
-
-
 		}
-	}
-	
-
-
-	
+	}	
 }
 
 
@@ -129,32 +124,20 @@ btn_handler(){
 	}
 
 tmr_handler(){
-	pass
-}
-			
-
-
-
-
-		}
-		
-		1, 1-2, 1-2-4-1-2-3
-		1, 1-2, 1-2-3
-		if (se acaba el array){
-			
-			i = 0
-		}
-		else if (error en secuencia )
-
-
+	if (indice_flujo = 1 and indice_juego = 0){
+		muestra secuencia de inicio de leds
 	}
-	
-if indice etapa juego = 0{
-
-	
-
+	else if (indice_flujo = 1 and indice_juego = 1){
+		ejecuta secuencias a repetir de los LEDs con random;
+	}
+	else if (indice_flujo = 2 and indice_juego = 0){
+		ejecuta parpadeo de los 4 LEDs tendr´an que parpadear 3 veces para indicar que se terminó el juego. Frecuencia de medio segundo
+	}
 }
-}
 
+swt_handler(){
+	switch-> sigue al switch analogico
+}
+			
 
 */
