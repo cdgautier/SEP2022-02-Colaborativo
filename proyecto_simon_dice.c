@@ -38,41 +38,46 @@ if (not switch and (counter_inicio == 0)){
 }
 
 while(switch){
-	printf("Bienvenido a simon dice!")
-	printf("ingresa nombre de usuario")
-	scanf() // nombre
-	a = funcion_verificar_username();
-	if (a){
+	indice_switch = 1;
+	while (indice_switch){
+		printf("Bienvenido a simon dice!")
+		printf("ingresa nombre de usuario")
+		scanf() // nombre
+		autentificacion = funcion_verificar_username();
+		while(autentificacion){
+			indice_flujo = 0;
+			// btn_handler() depende de indice_flujo
+			// si indice_flujo = 0 ->  btn_handler() muestra menu_inicio
+			// si indice_flujo = 1 ->  btn_handler() almacenó seleccion_juego
+			if seleccion_juego == 0001{
+				ranking();
+				indice_flujo = 0
+			}
+			while(seleccion_juego == 0010){
+				counter_rondas = 0;
+				indice_juego = 0;
+				//tmr_handler() depende de indice_juego
+				si indice_juego = 0 -> tmr_handler() ejecuta parpadeo de los cuatro LEDs por 2 segundos, con una frecuencia de medio segundo.
+				tmr_handler(); 
+				++indice_juego;
+				si indice_juego = 1 -> tmr_handler() ejecuta secuencias a repetir de los LEDs con random;
+				tmr_handler();
+				btn_handler(); -> si indice_flujo = 1 y indice_juego = 1, btn_handler() escribe en seleccion_juego lo que recibe de los botones
+				++indice_flujo; 
+				
 
-	funcion_menu_principal();
-	// btn_handler() depende de indice_etapa_juego
-	// si indice_etapa_juego = 0 ->  btn_handler() manipula variable global seleccion_principal
-	// para seleccionar en main() juego o ranking
-	// si indice_etapa_juego = 1 ->  btn_handler() manipula repeticion de secuencia
-	if seleccion_principal == 0{
-		ranking();
-		funcion_menu_principal();
+				if indice_flujo == 2{
+					tmr_handler() ejecuta parpadeo de los 4 LEDs tendr´an que parpadear 3 veces para indicar que se terminó el juego. Frecuencia de medio segundo,
+					btn_handler() pasa a seleccion_postjuego
+					si seleccion_postjuego = 01 -> mismo jugador, indice_flujo = 0, indice_juego = 0;
+					si seleccion_postjuego = 10 -> otro jugador, autentificacion = 0, indice_flujo = 0, indice_juego = 0;
+				}	
+			}
+
+
+		}
 	}
-	while(seleccion_principal){
-		counter_rondas = 0;
-		control_juego = 0;
-		//tmr_handler() depende de control_juego
-		si control_juego = 0 -> tmr_handler() ejecuta secuencia incial;
-		tmr_handler();
-		++control_juego;
-		si control_juego = 1 -> tmr_handler() ejecuta secuencias a repetir con random;
-		++indice_etapa_juego; 
-		tmr_handler();
-
-	if indice_etapa_juego == 2{
-	protocolo de fin de juego
-	}	
-
-
-	}
-
-
-	}
+	
 
 
 	
@@ -80,8 +85,73 @@ while(switch){
 
 
 
-btn_habndler(){
+btn_handler(){
+
+	if (indice_flujo = 0 and indice_juego = 0){
+		funcion_menu_inicio(); -> muestra menu inicio y queda atento a seleccion_juego
+	}
+	else if (indice_flujo = 1 and indice_juego = 0){
+		almacenó seleccion_juego 0001, 0010 
+	}
+	else if (indice_flujo = 1 and indice_juego = 1){
+		se genera elemento random en el array con maloc
+		suma_comparacion = 0;
+		for(int i=0; i < len(array); ++i ){
+			counter 30 seg...
+			if (tiempo_vida < 30){
+				if not (seleccion_juego == array[i]){
+					printf(error en secuencia uwu)
+					comparacion = 0;
+					break;
+				}
+				else{
+					++suma_comparacion;
+					tiempo_vida = 0;
+				}
+			}
+			else{
+				printf(te quedaste sin tiempo uwu)
+				comparacion = 0;
+				break;
+			}
+		}
+		if suma_comparacion = len(array){
+			++counter_rondas;
+		}
+		if comparacion = 0{
+			printf(game over)
+			indice_juego = 0
+			indice_flujo = 2
+		}
+	}
+	else if (indice_flujo = 2 and indice_juego = 0){
+		almacenó seleccion_postjuego 0001, 0010 
+	}
+
+tmr_handler(){
+	pass
+}
+			
+
+
+
+
+		}
+		
+		1, 1-2, 1-2-4-1-2-3
+		1, 1-2, 1-2-3
+		if (se acaba el array){
+			
+			i = 0
+		}
+		else if (error en secuencia )
+
+
+	}
+	
 if indice etapa juego = 0{
+
+	
 
 }
 }
