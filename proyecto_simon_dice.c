@@ -1,3 +1,48 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <ctype.h>
+
+#include "xparameters.h"
+#include "xgpio.h"
+#include "xtmrctr.h"
+#include "xscugic.h"
+#include "xil_exception.h"
+#include "xil_printf.h"
+
+// Parameter definitions
+#define INTC_DEVICE_ID 		XPAR_PS7_SCUGIC_0_DEVICE_ID
+#define TMR_DEVICE_ID		XPAR_TMRCTR_0_DEVICE_ID
+#define LEDS_DEVICE_ID		XPAR_AXI_GPIO_LED_DEVICE_ID
+#define BTNS_DEVICE_ID		XPAR_AXI_GPIO_BUTTONS_DEVICE_ID
+#define SWTS_DEVICE_ID		XPAR_AXI_GPIO_SWITCHES_DEVICE_ID
+#define INTC_TMR_INTERRUPT_ID XPAR_FABRIC_AXI_TIMER_0_INTERRUPT_INTR
+#define INTC_GPIO_INTERRUPT_ID XPAR_FABRIC_AXI_GPIO_BUTTONS_IP2INTC_IRPT_INTR
+
+#define BTN_INT 			XGPIO_IR_CH1_MASK
+#define TMR_LOAD			(0xFFFFFFFF - 50000000*0.5) // 0.5s Timer
+
+XGpio LEDInst;
+XGpio BTNInst;
+XScuGic INTCInst;
+XTmrCtr TMRInst;
+
+static int btn_value;         // recibe la señal del boton presionado
+static int btn_press;	      // vale 1 si el boton fue presionado y almacena este valor
+static int tmr_count;
+static int led_counter;       // iterador del ciclo del semaforo
+static int led_data;	      // valor qur imprime el led
+static int max_counter = 15;  // valor en que se reinicia el ciclo del semaforo
+
+//----------------------------------------------------
+// PROTOTYPE FUNCTIONS
+//----------------------------------------------------
+
+static void BTN_Intr_Handler(void *baseaddr_p);
+static void TMR_Intr_Handler(void *baseaddr_p);
+static int InterruptSystemSetup(XScuGic *XScuGicInstancePtr);
+static int IntcInitFunctionTmr(u16 DeviceId, XTmrCtr *TmrInstancePtr);
+static int IntcInitFunctionBtn(u16 DeviceId, XGpio *GpioInstancePtr);
 
 /*
 // 1. GPIO
