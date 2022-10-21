@@ -1,4 +1,4 @@
-// solo guardar ptje mas alto del mismo jugador
+// Solo guardar ptje mas alto del mismo jugador
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -37,14 +37,14 @@ XScuGic INTCInst;
 XTmrCtr TMRInst;
 
 static int init_counter = 0;
-static int btn_value;         // recibe la señal del boton presionado
-static int swt_value;         // recibe la señal del switch presionado
-static int select_game = 0;	      // vale 1 si el boton fue presionado y almacena este valor
+static int btn_value;         // Guarda el valor del boton presionado
+static int swt_value;         // Guarda el valor del switch presionado
+static int select_game = 0;	      // Vale 1 si el boton fue presionado y almacena este valor
 static int swt_on = 0;
 static int tmr_count;
 static int tmr_life;
-static int led_counter;       // iterador del ciclo del semaforo
-static int led_data;	      // valor qur imprime el led
+static int led_counter;       // Iterador del ciclo de gpio led en cada parte que sea requerido
+static int led_data;	      // Valor enviado a los leds
 static int index_flux = 0;
 static int index_game = 0;
 static int stand_by = 1;
@@ -56,7 +56,7 @@ static int num_players = 1;
 static int result_verification;
 static char input_name[20];
 static int max_sequence = 20;
-static int led_sequence_array[85]; // record mundial 84x
+static int led_sequence_array[85]; // Record mundial de este juego: 84!
 static int exp;
 static int value;
 static int timer_life;
@@ -66,7 +66,7 @@ typedef struct Player
 {
    char player_name[20];
    int player_score;
-}player;
+} player;
 
 //----------------------------------------------------
 // PROTOTYPE FUNCTIONS
@@ -96,7 +96,7 @@ void ranking(player *players_data)
     //Sort in descending order    
     for (int i = 0; i < num_players; i++) {     
         for (int j = i+1; j < num_players; j++) {     
-           if(players_data[i].player_score < players_data[j].player_score) { 
+           if(players_data[i].player_score < players_data[j].player_score){ 
                // sort puntajes
                temp_score = *(&players_data[i].player_score);    
                *(&players_data[i].player_score) = *(&players_data[j].player_score);    
@@ -110,22 +110,22 @@ void ranking(player *players_data)
     }    
     printf("\n\n * * * * * Ranking de Puntajes * * * * * \n\n");
     for (int k = 0; k < 3; k++){
-        printf(" %d) %s - %d puntos \n", k+1, players_data[k].player_name ,players_data[k].player_score);
+	printf(" %d) %s - %d puntos \n", k+1, players_data[k].player_name ,players_data[k].player_score);
     }  
 	printf("\n * * * * * * * * * * * * * * * * * * * * \n\n");
 }
 
 void menu_postgame()
 {
-	 printf("\n\n * * * * * GAME OVER * * * * * \n\n");
-	printf("Presiona BTN0 para intentarlo otra vez o BTN1 para cambiar de usuario");
+	printf("\n\n * * * * * GAME OVER * * * * * \n\n");
+	printf("Presiona BTN0 para jugar otra vez o BTN1 para cambiar de jugador");
 	printf("\n\n  * * * * * * * *  * * * * * * \n");
 }
 
 void generate_random_led()
 {
-	*(&exp) = rand() % 4;
-	*(&value) = pow(2, exp);
+	*(&exp) = rand() % 4; // Se elige aleatoriamente entre estos valores: 0, 1, 2 y 3
+	*(&value) = pow(2, exp); // Luego se toma el valor generado para que sea una potencia de 2
 	*(&led_sequence_array[array_iterator]) = value;
 }
 
@@ -160,11 +160,11 @@ void TMR_Intr_Handler(void *data, player *players_data)
 {
 	if (XTmrCtr_IsExpired(&TMRInst,0)){
 		XTmrCtr_Reset(&TMRInst,0);
-		// Parpadeo inicializacion
+		// Parpadeo inicializacion de juego: 4 semiciclos de medio segundo
 		if (index_flux == 1 && index_game == 0){
 
 			if(tmr_count == 9){ // La segunda vez que entre (10 veces 0.05 segundos = 0.5 segundo)
-								// se suma uno a la data del led
+								// Se suma uno a la data del led
 
 				tmr_count = 0;
 				if (led_counter == 0){
@@ -195,7 +195,7 @@ void TMR_Intr_Handler(void *data, player *players_data)
 		else if (index_flux == 1 && index_game == 1){
 			if (array_iterator < (score + 1)){
 				if(tmr_count == 1){ // La segunda vez que entre (2 veces 0.05 segundos = 0.1 segundo)
-							// se suma uno a la data del led
+							// Se suma uno a la data del led
 					tmr_count = 0;
 					if (led_counter < 8){
 						led_data = led_sequence_array[array_iterator];
@@ -219,30 +219,29 @@ void TMR_Intr_Handler(void *data, player *players_data)
 				*(&index_game) = 2;
 			}
 		}
-		// Comparación secuencia reproducida por los botones
+		// Comparacion secuencia reproducida por los botones
 		else if (index_flux == 1 && index_game == 2){
 
 			if(tmr_count == 19){ // La segunda vez que entre (20 veces 0.05 segundos = 1 segundo)
-							// se suma uno a la data del led
+							// Se suma uno a la data del led
 				tmr_count = 0;
 
-				if (timer_life < 30){   // si queda tiempo
-					if (stand_by == 0){  // y se ha presionado un boton, se compara
-						if (select_game != led_sequence_array[array_iterator]){  // si la comparacion no corresponde
+				if (timer_life < 30){   // Si aun queda tiempo
+					if (stand_by == 0){  // Y ademas se ha presionado un boton, se verifica coincidencia entre entrada y el elemento correspondiente
+						if (select_game != led_sequence_array[array_iterator]){  // Si la comparacion no corresponde
 							printf("\n error en secuencia uwu");
 							*(&comparation) = 0;
 						}
-						else{   // si la comparacion es correcta, sigue con el siguiente elemento
-							//++comparation_sum;
+						else{   // Si la comparacion es correcta, continuamos con el siguiente elemento
 							*(&array_iterator) += 1;
-							timer_life = -1; // esto es para que no haya conflicto al sumar ++timer_life;
+							timer_life = -1; // Esto es para evitar conflictos al sumar ++timer_life;
 
 						}
 					}
 				}
-				++timer_life;	// suma al tiempo
+				++timer_life;	// Suma al tiempo
 				if (timer_life == 30){ // se acaba el tiempo sin presionar boton
-					printf("\n te quedaste sin tiempo uwu");
+					printf("\n Se acabó el tiempo.");
 					*(&comparation) = 0;
 				}
 				if (array_iterator == (score + 1)){
@@ -252,8 +251,8 @@ void TMR_Intr_Handler(void *data, player *players_data)
 					*(&index_flux) = 1;
 					*(&index_game) = 1;
 				}
-				if (comparation = 0){ // pasa a postjuego
-					printf("\n game over");
+				if (comparation = 0){ // Pasa a postjuego
+					printf("\n Error, secuencia incorrecta.");
 					*(&array_iterator) = 0;
 					reset_array_led();
 					*(&index_flux) = 2;
@@ -266,7 +265,7 @@ void TMR_Intr_Handler(void *data, player *players_data)
 				tmr_count++;
 			}
 		}
-		// Parpadeo fin de juego
+		// Parpadeo fin de juego: 6 semiciclos de medio segundo
 		else if (index_flux == 2 && index_game == 0){
 			if(tmr_count == 9){ // La segunda vez que entre (10 veces 0.05 segundos = 0.5 segundo)
 								// se suma uno a la data del led
@@ -309,18 +308,18 @@ void BTN_Intr_Handler(void *InstancePt, player *players_data)
 			BTN_INT) {
 			return;
 		}
-	// eleccion de menu
+	// Eleccion del menu
 	if (index_flux == 0 && index_game == 0){
-		printf("\n  presiona BTN0 para jugar o BTN1 para ver el ranking de puntajes \n");
+		printf("\n  *** Presiona BTN0 para jugar o BTN1 para ver el ranking de jugadores *** \n");
 		btn_value = XGpio_DiscreteRead(&BTNInst, 1);
 		if (btn_value == 1){
-			*(&index_flux) = 1; // juega
+			*(&index_flux) = 1; // Que comience el juego
 		}
 		else if (btn_value == 2){
 			ranking(players_data);
 		}
 	}
-	// realizando reproduccion de secuencia
+	// Turno del jugador para repetir la secuencia
 	else if (index_flux == 1 && index_game == 2){
 		btn_value = XGpio_DiscreteRead(&BTNInst, 1);
 		if (btn_value == 0){
@@ -347,12 +346,12 @@ void BTN_Intr_Handler(void *InstancePt, player *players_data)
 	else if (index_flux == 2 && index_game == 0){
 		menu_postgame();
 		btn_value = XGpio_DiscreteRead(&BTNInst, 1);
-		if (btn_value == 1){ // jugar con el mismo usuario
+		if (btn_value == 1){ // Jugar con el mismo alias
 			*(&index_flux) = 0;
 			*(&index_game) = 0;
 			*(&autentification) = 1;
 		}
-		else if (btn_value == 2){  // jugar con otro usuario
+		else if (btn_value == 2){  // Jugar con otro alias
 			*(&index_flux) = 0;
 			*(&index_game) = 0;
 			*(&autentification) = 0;
@@ -380,7 +379,7 @@ int main (void)
 	init_platform();
 
 	if ((swt_on == 0) && (init_counter == 0)){
-		printf("\n enciende el switch 0 para iniciar el juego");
+		printf("\n *** Activa el switch 0 para iniciar el juego *** ");
 		++init_counter;
 	}
 
@@ -434,13 +433,13 @@ int main (void)
 		printf("\n\n * * * * * ¡Bienvenido a Simon Dice! * * * * * \n\n");
 
     	while(autentification == 0){
-		    printf("Ingresa alias de max 15 caracteres: ");
+		    printf("Ingresa tu alias (máximo 15 caracteres): ");
 		    scanf("%s",input_name);
 
 		    for (int j = 0; j < num_players; j++){
 		        result_verification = strcmp(players_data[j].player_name, input_name);
 		        if (result_verification == 0){
-		            printf("\n el nombre ya fue ingresado, intenta otra vez\n");
+		            printf("\n El alias ya fue ingresado, intenta con otro. \n");
 		            break;
 		        }
 		        else{
@@ -559,7 +558,7 @@ int IntcInitFunctionSwt(u16 DeviceId, XGpio *GpioInstancePtr)
 	if(status != XST_SUCCESS) return XST_FAILURE;
 
 	// Enable GPIO interrupts interrupt
-	XGpio_InterruptEnable(GpioInstancePtr, 1);
+	XGpio_InterruptEnable(GpioInstancePtr, 2);
 	XGpio_InterruptGlobalEnable(GpioInstancePtr);
 
 	// Enable GPIO and timer interrupts in the controller
