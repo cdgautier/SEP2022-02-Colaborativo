@@ -42,6 +42,7 @@ static int swt_value;         // recibe la señal del switch presionado
 static int select_game = 0;	      // vale 1 si el boton fue presionado y almacena este valor
 static int swt_on = 0;
 static int tmr_count;
+static int tmr_life;
 static int led_counter;       // iterador del ciclo del semaforo
 static int led_data;	      // valor qur imprime el led
 static int index_flux = 0;
@@ -58,6 +59,7 @@ static int max_sequence = 20;
 static int led_sequence_array[85]; // record mundial 84x
 static int exp;
 static int value;
+static int timer_life;
 
 
 typedef struct Player
@@ -74,8 +76,8 @@ static void ranking(player *players_data);
 static void menu_postgame();
 static void generate_random_led();
 static void reset_array_led();
-static void TMR_Intr_Handler(void *baseaddr_p);
-static void BTN_Intr_Handler(void *baseaddr_p);
+static void TMR_Intr_Handler(void *baseaddr_p, player *players_data);
+static void BTN_Intr_Handler(void *baseaddr_p, player *players_data);
 static void SWT_Intr_Handler(void *baseaddr_p);
 static int InterruptSystemSetup(XScuGic *XScuGicInstancePtr);
 static int IntcInitFunctionTmr(u16 DeviceId, XTmrCtr *TmrInstancePtr);
@@ -122,9 +124,9 @@ void menu_postgame()
 
 void generate_random_led()
 {
-	exp = rand() % 4;
-	value = pow(2, exp);
-	led_sequence_array[array_iterator] = value;
+	*(&exp) = rand() % 4;
+	*(&value) = pow(2, exp);
+	*(&led_sequence_array[array_iterator]) = value;
 }
 
 void reset_array_led()
@@ -154,7 +156,7 @@ void SWT_Intr_Handler(void *InstancePtr)
 	XGpio_InterruptEnable(&SWTInst, SWT_INT);
 }
 
-void TMR_Intr_Handler(void *data)
+void TMR_Intr_Handler(void *data, player *players_data)
 {
 	if (XTmrCtr_IsExpired(&TMRInst,0)){
 		XTmrCtr_Reset(&TMRInst,0);
@@ -202,7 +204,7 @@ void TMR_Intr_Handler(void *data)
 						led_data = 0;
 					}
 					led_counter++;
-					else if (led_counter == 10){
+					if (led_counter == 10){
 						*(&array_iterator) = *(&array_iterator) + 1;
 						led_counter = 0;
 					}
@@ -212,7 +214,7 @@ void TMR_Intr_Handler(void *data)
 					tmr_count++;
 				}
 			}
-			else (array_iterator == (score + 1)){
+			else if (array_iterator == (score + 1)){
 				*(&array_iterator) = 0;
 				*(&index_game) = 2;
 			}
@@ -261,7 +263,7 @@ void TMR_Intr_Handler(void *data)
 				}
 			}
 			else{
-				tmr_count++
+				tmr_count++;
 			}
 		}
 		// Parpadeo fin de juego
@@ -293,12 +295,12 @@ void TMR_Intr_Handler(void *data)
 				if (led_counter == 6){
 				}
 			}
-			else tmr_count++;
+			else {tmr_count++;}
 		}
 	}	
 }
 
-void BTN_Intr_Handler(void *InstancePtr)
+void BTN_Intr_Handler(void *InstancePt, player *players_data)
 {
 	// Disable GPIO interrupts
 	XGpio_InterruptDisable(&BTNInst, BTN_INT);
@@ -450,6 +452,7 @@ int main (void)
     	}
 	}
 	free(players_data);
+	cleanup_platform();
 	return 0;
 }
 
@@ -533,6 +536,7 @@ int IntcInitFunctionBtn(u16 DeviceId, XGpio *GpioInstancePtr)
 	return XST_SUCCESS;
 }
 
+
 int IntcInitFunctionSwt(u16 DeviceId, XGpio *GpioInstancePtr)
 {
 	XScuGic_Config *IntcConfig;
@@ -549,7 +553,7 @@ int IntcInitFunctionSwt(u16 DeviceId, XGpio *GpioInstancePtr)
 
 	// Connect GPIO interrupt to handler
 	status = XScuGic_Connect(&INTCInst,
-					  	  	 INTC_GPIO_INTERRUPT_ID,
+					  	  	 INTC_GPIO_SWT_INTERRUPT_ID,
 					  	  	 (Xil_ExceptionHandler)SWT_Intr_Handler,
 					  	  	 (void *)GpioInstancePtr);
 	if(status != XST_SUCCESS) return XST_FAILURE;
@@ -559,7 +563,7 @@ int IntcInitFunctionSwt(u16 DeviceId, XGpio *GpioInstancePtr)
 	XGpio_InterruptGlobalEnable(GpioInstancePtr);
 
 	// Enable GPIO and timer interrupts in the controller
-	XScuGic_Enable(&INTCInst, INTC_GPIO_INTERRUPT_ID);
+	XScuGic_Enable(&INTCInst, INTC_GPIO_SWT_INTERRUPT_ID);
 
 	return XST_SUCCESS;
 }
