@@ -1,0 +1,5 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/Tarea 7 - PWM/Tarea 7 - PWM.srcs/sim_1/new/PWM_testbench.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'PWM_tb'
+ERROR: [VRFC 10-2989] 'pwm_bits' is not declared [C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/Tarea 7 - PWM/Tarea 7 - PWM.srcs/sim_1/new/PWM_testbench.vhd:25]
+ERROR: [VRFC 10-3782] unit 'bench' ignored due to previous errors [C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/Tarea 7 - PWM/Tarea 7 - PWM.srcs/sim_1/new/PWM_testbench.vhd:12]
+INFO: [VRFC 10-3070] VHDL file 'C:/Users/Marco/Desktop/SEP/SEP2022-02-Colaborativo/Tarea 7 - PWM/Tarea 7 - PWM.srcs/sim_1/new/PWM_testbench.vhd' ignored due to errors
